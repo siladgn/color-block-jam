@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Color Block Jam</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- PWA Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Color Block Jam</h1>
+            <div class="stats">
+                <div class="stat-item">Level: <span id="level-num">1</span></div>
+                <div class="stat-item">Hamle: <span id="move-count">0</span></div>
+            </div>
+        </header>
+
+        <main id="game-container">
+            <div id="grid-wall">
+                <!-- Collectors will be generated here -->
+                <div id="game-grid">
+                    <!-- Blocks will be generated here -->
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div id="ad-banner" class="ad-placeholder">
+                <p>Reklam Alanı</p>
+            </div>
+            <div class="controls">
+                <button id="hint-btn" class="btn secondary">İpucu (Reklam)</button>
+                <button id="reset-btn" class="btn danger">Sıfırla</button>
+            </div>
+        </footer>
+
+        <div id="modal-container" class="hidden">
+            <div class="modal">
+                <h2 id="modal-title">Tebrikler!</h2>
+                <p id="modal-body">Seviye 1 tamamlandı.</p>
+                <div class="modal-actions">
+                    <button id="next-level-btn" class="btn primary">Sonraki Seviye</button>
+                    <button id="share-btn" class="btn secondary">Paylaş 🔗</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>

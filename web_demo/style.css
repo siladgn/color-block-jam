@@ -1,0 +1,198 @@
+:root {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --primary: #3b82f6;
+    --secondary: #8b5cf6;
+    --danger: #ef4444;
+    --text: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent: #f59e0b;
+    
+    --block-red: #ef4444;
+    --block-blue: #3b82f6;
+    --block-green: #22c55e;
+    --block-yellow: #eab308;
+    --block-purple: #a855f7;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#app {
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: relative;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2rem;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    background: var(--card-bg);
+    padding: 10px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+#game-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+#grid-wall {
+    position: relative;
+    padding: 10px;
+    background: #334155;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+#game-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 4px;
+    width: min(80vw, 350px);
+    height: min(80vw, 350px);
+    background: #1e293b;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.grid-cell {
+    background: rgba(255,255,255,0.05);
+    border-radius: 4px;
+}
+
+.block {
+    position: absolute;
+    border-radius: 8px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: grab;
+    z-index: 10;
+    box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2), 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.block:active {
+    cursor: grabbing;
+    transform: scale(0.95);
+}
+
+.block-red { background-color: var(--block-red); }
+.block-blue { background-color: var(--block-blue); }
+.block-green { background-color: var(--block-green); }
+.block-yellow { background-color: var(--block-yellow); }
+.block-purple { background-color: var(--block-purple); }
+
+/* Collectors/Targets */
+.collector {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.3);
+}
+
+footer {
+    padding-top: 20px;
+}
+
+.ad-placeholder {
+    background: var(--card-bg);
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+    border: 1px dashed var(--text-muted);
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.btn:active { transform: scale(0.95); }
+.primary { background: linear-gradient(135deg, var(--primary), var(--secondary)); }
+.secondary { background: var(--card-bg); color: var(--text); border: 1px solid var(--text-muted); }
+.danger { background: var(--danger); }
+
+/* Modal */
+#modal-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+}
+
+.modal {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 80%;
+    max-width: 300px;
+}
+
+.hidden { display: none !important; }
